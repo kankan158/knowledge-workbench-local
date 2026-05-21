@@ -1,0 +1,2799 @@
+{
+  "docMeta": {
+    "0a928500696349b8b5eec24029358cd0:0000:eb05b30cb8ec": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "0a928500696349b8b5eec24029358cd0:0001:fa58194b8af5": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "0a928500696349b8b5eec24029358cd0:0002:acbf131c79a1": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "0a928500696349b8b5eec24029358cd0:0003:707e3cfc6791": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "0a928500696349b8b5eec24029358cd0:0004:94fdd7513104": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "0a928500696349b8b5eec24029358cd0:0005:53cf9567405e": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "0a928500696349b8b5eec24029358cd0:0006:92a53e115014": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0000:28a75cc13b41": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0001:40ce14ce25b5": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0002:3d90e2f28e6a": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0003:61f574a06ab2": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0004:defe5d4cd735": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0005:8c4a58d91e9b": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0006:2d587f85f904": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0007:13101e7f745c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0008:f58d71850767": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0009:4daff0727035": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0010:d5eaef514a6a": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0011:4f7810d0f150": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0012:4f6ac4baf8ba": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0013:f5a2d3e86ea3": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0014:1f9e9e22116b": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0015:a8e83641e5c6": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0016:95f0b4ac9364": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0017:8e9a56b2b934": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0018:1299ae941884": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0019:bba38a91025e": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0020:2de5547b82a2": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0021:49e16bad7b8c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0022:66c5b3e651f1": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0023:3200ab40a91c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0024:844ffb267f4c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0025:137e0e70c38e": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0026:481fbf390b72": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "27d0a5393e654443a2e21a8a754bee9d:0027:eb6c05b38c1d": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0000:92ebaf399169": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0001:757acaea762d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0002:1fd393ad74ca": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0003:47388cf95416": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0004:590544f6c554": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0005:db1c6e44e10d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0006:032babc715b4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0007:ae746f69d01b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0008:ffa9373a8d6c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0009:3709cb5e30b0": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0010:90fd076feeb8": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0011:a332b024e7c1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0012:d9222a4a67cb": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0013:125e6984a209": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0014:f47024b72dbc": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0015:20848961f42d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0016:d7d8d1873380": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0017:a8098164d3af": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0018:c32195085e3b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0019:be27c93cac37": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0020:1356adb6b443": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0021:480fb2b2cbbf": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0022:fa62f08ab8a9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0023:951aa40af176": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0024:8a14d5940ec4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0025:c56d96f08b01": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0026:73dd03f38075": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0027:ac96b5eac965": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0028:7cb22a8e2119": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "41c5d4586d074f1cae6a1390736703b1:0029:528d1043754b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0000:58febcc1e0aa": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0001:0d2d7b8c3e8d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0002:3b4d22f41f2b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0003:8ca70f50a566": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0004:f53228a30b60": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0005:b4f2334146c7": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0006:dd4304cd5e2c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0007:7b5dd6477c55": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0008:b37cb726098c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0009:b28d600234b1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0010:c46f1aa28f72": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0011:be71465df4a6": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0012:3cc6cfc64f92": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0013:8e6ce52dd43b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0014:a9a939d9ddbc": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0015:70ff6b14f6a1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0016:d595387d0fb7": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0017:eddc5631360d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0018:0be04a5a1430": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0019:22f58782c082": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0020:d92d38a80c65": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0021:a3ebd150fd05": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0022:629f7ccd8cf2": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0023:c9fd5ff6b4eb": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0024:b2812c851c20": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0025:ac4088544238": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0026:4a5157489ef9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0027:05507db4a749": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0028:45bd01f38468": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0029:1df7b2d002c0": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0030:46f5606fab1d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0031:77eb0fe78c0c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0032:5636ba0384eb": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0033:a0806a7fb1fb": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0034:9846225c3b82": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0035:cafafb8968d5": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0036:87c75cdcbb05": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0037:fab74ad2237e": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0038:286f265e3c22": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0039:97ed175feee8": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0040:291f12027b46": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0041:bfe2a8eec7fc": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0042:c3d4484cc6cc": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0043:385cb62cf8cf": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0044:9e86dbbd615a": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0045:36eca275105c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0046:b07b0dc8acb5": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0047:419635814894": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0048:638aae54e6b1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0049:ee9acd8bcc88": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0050:37e26f203ca7": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0051:d6bc7022c473": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0052:b5d7ce37d096": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0053:48db79a44049": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0054:459c12c7f52d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "43fd320b6359410793786adf2f149c0f:0055:a33d1d36a6ec": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0000:794258da9f29": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0001:4741f9ac0fba": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0002:37f58bb5dfb9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0003:5ea752e1f47d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0004:64682fad3485": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0005:46c4dd929be4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0006:3d67aed65e65": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0007:4f4a96b36cad": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0008:d952c0924645": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0009:04fab154e419": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0010:591a664e28d5": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0011:e00f4678ffbe": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0012:78cea0f45871": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0013:1f41854f2a14": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0014:e5612cab8af8": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0015:be8e07628829": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0016:7f734db15092": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0017:e85f1c18f568": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0018:bd260450fb0d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0019:d4a9a08ae4ad": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0020:616a724bf995": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0021:d84f47c1a019": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0022:55bb2e33edd9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0023:57e898f39349": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0024:9785a0a7653a": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0025:5d8f045df7e9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0026:b9e4a2213ad4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0027:aa3ab123bb33": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0028:c5ac14edb807": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0029:5af32c66f3b9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0030:8b2def8adac1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0031:d9aa2d12681f": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0032:c2b07636dba9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0033:0388c5c19113": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0034:ff36f65ea11a": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0035:14c3a1cf8a16": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0036:2163588967e4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0037:8f15847ffe06": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0038:355d50ae882a": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0039:c0a1b4a36a9c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0040:18c764dc748b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0041:6cae1bfcc0bf": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0042:cb206926d888": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0043:eb266fca56bc": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0044:b074e83c0f4c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0045:18708eaea62a": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0046:370cbba08faa": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0047:f157623ca081": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0048:0ef7c09328c4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0049:ae35f031d35a": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0050:5417c1702c6f": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0051:52fa180d1f06": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0052:1cbb0c76baad": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0053:1fa5b110ca16": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0054:b4bdee4ca1e8": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0055:be46a2f2554d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0056:09bd8e9c8925": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0057:63df95f12845": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0058:7e41d4a1f88d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "4ed0ec9cec4e46c3b156bcf0eb8eacd8:0059:8c0cf81f3a5a": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0000:a5c5b168de17": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0001:d236ef6bea3f": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0002:bed74921a567": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0003:f52a4de6efa0": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0004:cedf0eccc9c6": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0005:442c29ad61d0": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0006:69b282e184e6": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0007:77d8da112f8e": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0008:b71b40aa9282": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0009:49131037c53e": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0010:48bfec4f7b29": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0011:5957bf15a420": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0012:7f9ff5538942": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0013:88b49e04b1ac": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0014:ca17fdfb133c": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0015:ba65c0b77033": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0016:1adc85279e76": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0017:b7fdd50b9102": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0018:2488e1a430a0": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0019:fc9e78fa4334": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0020:e02e5984ca2a": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0021:cc05fef85296": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0022:ff1b90a2e3ff": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0023:6680a49d299d": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0024:6d725e3ff37c": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0025:7b464b849dce": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0026:83d0527055bf": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0027:cc8f7a3d2a05": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0028:7b576540f30c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0029:00fa383f6c3a": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "68a8267839e74d4182e27127870c4736:0030:8f69789abd3f": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "6cbcf3aaffd049b5861a443e27cc4dab:0000:c20986b5787d": {
+      "fileType": "文本",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "7c5b2182-8807-4093-b679-fcafdb48dfbb": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0000:92ebaf399169": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0001:757acaea762d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0002:1fd393ad74ca": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0003:47388cf95416": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0004:590544f6c554": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0005:db1c6e44e10d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0006:032babc715b4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0007:ae746f69d01b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0008:ffa9373a8d6c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0009:3709cb5e30b0": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0010:90fd076feeb8": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0011:a332b024e7c1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0012:d9222a4a67cb": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0013:125e6984a209": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0014:f47024b72dbc": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0015:20848961f42d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0016:d7d8d1873380": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0017:a8098164d3af": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0018:c32195085e3b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0019:be27c93cac37": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0020:1356adb6b443": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0021:480fb2b2cbbf": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0022:fa62f08ab8a9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0023:951aa40af176": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0024:8a14d5940ec4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0025:c56d96f08b01": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0026:73dd03f38075": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0027:ac96b5eac965": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0028:7cb22a8e2119": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a4548a92eaf84ce29af9868d82545302:0029:528d1043754b": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a8546a289f0141f8b3b18683bb3d57c8:0000:8bbbf47bb15c": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "a8546a289f0141f8b3b18683bb3d57c8:0001:0f3dafdad847": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0000:d96e44cf865d": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0001:0cc2a6c65620": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0002:0ee54698743b": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0003:5fdd17f62d5a": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0004:123e747623e5": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0005:125c47801680": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0006:673905a483a6": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0007:15166f16ddf5": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0008:929abaf7d2b7": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0009:18459c336a77": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0010:42524cf837e3": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0011:8f79e78c1e91": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0012:6a244b242172": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0013:b149eb4b14bb": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0014:87b712460282": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0015:39fd28bade16": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0016:ffe259876165": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0017:f27e5e3c63bc": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0018:a6527653312b": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0019:a3205c82cec7": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0020:5c8373ae1ea2": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0021:dc40c7a3e322": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0022:1475dcacc940": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0023:b60dcae9cc24": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0024:559197dabfc0": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0025:1f483ccba8e1": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0026:0b8024739cdc": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0027:e1fbe0de5c49": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0028:507d29673f46": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0029:a19bd33fb633": {
+      "fileType": "Word",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "b20e8faac27c43fe83fece187ea0e6ff:0030:4076e1bd609d": {
+      "fileType": "Word",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0000:28a75cc13b41": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0001:40ce14ce25b5": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0002:3d90e2f28e6a": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0003:61f574a06ab2": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0004:defe5d4cd735": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0005:8c4a58d91e9b": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0006:2d587f85f904": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0007:13101e7f745c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0008:f58d71850767": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0009:4daff0727035": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0010:d5eaef514a6a": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0011:4f7810d0f150": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0012:4f6ac4baf8ba": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0013:f5a2d3e86ea3": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0014:1f9e9e22116b": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0015:a8e83641e5c6": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0016:95f0b4ac9364": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0017:8e9a56b2b934": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0018:1299ae941884": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0019:bba38a91025e": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0020:2de5547b82a2": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0021:49e16bad7b8c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0022:66c5b3e651f1": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0023:3200ab40a91c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0024:844ffb267f4c": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0025:137e0e70c38e": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0026:481fbf390b72": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d0a5c58e2f3a4fb4a8464dfd50bb945a:0027:eb6c05b38c1d": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "d816f6ad3a514b53976a07019512c4df:0000:c20986b5787d": {
+      "fileType": "文本",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0000:560d4cb4387b": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0001:d200981c5c5d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0002:0e9318a21348": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0003:1fd14ca1eb05": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0004:2f0816c7c5d1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0005:031bb7500fa0": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0006:acb6048f70ef": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0007:d0ef36c265fb": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0008:ac68910684d3": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0009:10ae6ee91f61": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0010:3ae4a6f09d80": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0011:472a663d1f7a": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0012:f54c3714c115": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0013:09d41e13083a": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0014:4cad23aca10f": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0015:6a4a7f83c880": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0016:e5a06987c5c1": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0017:0a98b244b026": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0018:493b4ae523ac": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0019:bc0e4df71474": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0020:fe33709c6363": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0021:ae19766446c8": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0022:cddd30d75059": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0023:2dd629f5a6c4": {
+      "fileType": "PDF",
+      "folderId": "transformer",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0024:aa5826fca98e": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0025:5d458396b937": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0026:ae2e149a7534": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0027:5347dd22cb13": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0028:a86d972e73df": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0029:a5289bbcd4f4": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0030:4480c9a58520": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0031:b527282f021d": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0032:758c349dc802": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0033:8689e17b8b25": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0034:33f3fdcb1622": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0035:c166511b1f68": {
+      "fileType": "PDF",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0036:50841a0ab4d9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0037:21d92098a7f9": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "fc6cb11edac64af78fe50c55fec77fdf:0038:f469ba94d73c": {
+      "fileType": "PDF",
+      "folderId": "eeg",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "intro-local-first": {
+      "fileType": "文档",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "intro-rag": {
+      "fileType": "文档",
+      "folderId": "research",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    },
+    "intro-vue": {
+      "fileType": "文档",
+      "folderId": "notes",
+      "hidden": false,
+      "indexed": true,
+      "tags": [],
+      "titleOverride": ""
+    }
+  },
+  "folders": [
+    {
+      "id": "folder-fsx3t6kl",
+      "name": "第一",
+      "parentId": null
+    }
+  ],
+  "tags": [
+    "脑电",
+    "人机交互"
+  ]
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>知识工作台 原型 - 三栏布局</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="root">
+    <header class="topbar">
+      <div class="brand">知识工作台 原型</div>
+      <div class="searchbar">
+        <input id="globalSearch" placeholder="全局检索：输入问题或关键词（回车搜索）" />
+        <div class="search-controls">
+          <label><input type="checkbox" id="inFolderOnly"> 仅在当前目录检索</label>
+          <select id="modeSelect">
+            <option value="hybrid">混合检索（语义+关键词）</option>
+            <option value="vector">向量语义</option>
+            <option value="keyword">关键词(BM25)</option>
+          </select>
+          <div id="weightSlider" class="weight-slider" style="display:none">
+            <label>权重<span id="alphaValue">0.5</span>: <input id="alphaSlide" type="range" min="0" max="1" step="0.1" value="0.5"></label>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="left">
+        <div class="folder-header">目录</div>
+        <ul class="folder-tree" id="folderList"></ul>
+        <div class="tag-section">
+          <div class="tag-header">标签</div>
+          <div id="tagCloud" class="tag-cloud"></div>
+        </div>
+      </aside>
+
+      <main class="middle">
+        <div class="toolbar">
+          <button id="uploadBtn">上传文件</button>
+          <div class="upload-config" id="uploadConfig" style="display:none">
+            <label>Chunk Size: <select id="chunkSize"><option>256</option><option>512</option></select></label>
+            <label>Overlap: <select id="overlap"><option>20</option><option>50</option></select></label>
+            <div id="uploadProgress" class="upload-progress">
+              <div class="progress-bar"></div>
+              <span id="progressText">准备上传...</span>
+            </div>
+            <div id="uploadSteps" class="upload-steps"></div>
+          </div>
+        </div>
+
+        <section class="results">
+          <div class="results-info">检索结果 (<span id="resultCount">0</span>)</div>
+          <div id="resultsList" class="results-list"></div>
+        </section>
+      </main>
+
+      <aside class="right">
+        <div class="qa-panel">
+          <h3>问答</h3>
+          <textarea id="qaInput" placeholder="向模型提问，回车提交"></textarea>
+          <button id="askBtn">生成答案</button>
+          <div id="answerArea" class="answer-area"></div>
+          <div id="sources" class="sources-section" style="display:none">
+            <h4>参考来源</h4>
+            <ul id="sourcesList"></ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

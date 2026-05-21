@@ -1,0 +1,47 @@
+:root {
+  color-scheme: light;
+  font-family: 'Source Han Sans SC', 'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  --bg-base: #f1eee8;
+  --bg-soft: #e7e2d9;
+  --panel: #f7f5f1;
+  --panel-strong: #ffffff;
+  --border: #dbd6cd;
+  --text-main: #222222;
+  --text-sub: #666159;
+  --brand: #2f7d78;
+  --brand-soft: #e6f2f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(1200px 540px at -5% -10%, rgba(255, 255, 255, 0.66), transparent 60%),
+    radial-gradient(900px 420px at 105% 0%, rgba(203, 224, 221, 0.44), transparent 58%),
+    linear-gradient(180deg, var(--bg-base) 0%, var(--bg-soft) 100%);
+  color: var(--text-main);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+}

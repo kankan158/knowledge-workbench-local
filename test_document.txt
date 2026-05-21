@@ -1,0 +1,13 @@
+Test Document for Knowledge Workbench
+
+This is a test document to verify the file upload functionality of the knowledge workbench.
+
+Key Features:
+- Document indexing and retrieval
+- Full-text search with vector embeddings
+- Retrieval-Augmented Generation (RAG)
+- Support for multiple file formats
+- Local-first architecture
+
+The system uses Chroma for vector storage and DeepSeek API for answer synthesis.
+This test confirms that the upload, chunking, and indexing pipeline works correctly.
