@@ -26,6 +26,11 @@ CHUNK_TITLE_PATTERN = re.compile(r"\s*\[\d+/\d+\]$")
 VECTOR_SIZE = 128
 
 
+def _clean_text(value: object) -> str:
+    text = str(value or "")
+    return "".join(character for character in text if not 0xD800 <= ord(character) <= 0xDFFF)
+
+
 @dataclass
 class StoredDocument:
     id: str
@@ -39,6 +44,7 @@ class HashEmbeddingFunction:
         return [self._embed_text(text) for text in input]
 
     def _embed_text(self, text: str) -> list[float]:
+        text = _clean_text(text)
         vector = [0.0] * VECTOR_SIZE
         for token in TOKEN_PATTERN.findall(text.lower()):
             digest = hashlib.sha256(token.encode("utf-8")).digest()
@@ -69,16 +75,25 @@ class KnowledgeStore:
     def upsert_many(self, documents: List[StoredDocument]) -> None:
         if not documents:
             return
+        cleaned_documents = [
+            StoredDocument(
+                id=_clean_text(document.id),
+                title=_clean_text(document.title),
+                content=_clean_text(document.content),
+                source=_clean_text(document.source) or None,
+            )
+            for document in documents
+        ]
         self.collection.upsert(
-            ids=[document.id for document in documents],
-            documents=[document.content for document in documents],
+            ids=[document.id for document in cleaned_documents],
+            documents=[document.content for document in cleaned_documents],
             metadatas=[
                 {
                     "title": document.title,
                     "source": document.source or "",
                     "folder": self._infer_folder_from_source(document.source or ""),
                 }
-                for document in documents
+                for document in cleaned_documents
             ],
         )
 
@@ -313,21 +328,34 @@ class KnowledgeStore:
 
         return chunks
 
-    def ingest_text(self, base_id: str, title: str, content: str, source: Optional[str] = None) -> List[StoredDocument]:
-        chunks = self.chunk_text(content)
+    def ingest_text(
+        self,
+        base_id: str,
+        title: str,
+        content: str,
+        source: Optional[str] = None,
+        chunk_size: int = 1200,
+        overlap: int = 150,
+    ) -> List[StoredDocument]:
+        base_id = _clean_text(base_id)
+        title = _clean_text(title) or "Untitled"
+        content = _clean_text(content)
+        source = _clean_text(source) or None
+        chunks = self.chunk_text(content, max_chars=chunk_size, overlap=overlap)
         if not chunks:
             chunks = [content.strip()]
 
         documents: list[StoredDocument] = []
         chunk_total = len(chunks)
         for index, chunk in enumerate(chunks):
-            digest = hashlib.sha1(chunk.encode("utf-8")).hexdigest()[:12]
+            clean_chunk = _clean_text(chunk)
+            digest = hashlib.sha1(clean_chunk.encode("utf-8")).hexdigest()[:12]
             chunk_title = title if chunk_total == 1 else f"{title} [{index + 1}/{chunk_total}]"
             documents.append(
                 StoredDocument(
                     id=f"{base_id}:{index:04d}:{digest}",
                     title=chunk_title,
-                    content=chunk,
+                    content=clean_chunk,
                     source=source,
                 )
             )
@@ -446,6 +474,30 @@ class KnowledgeStore:
 
     def list_all(self) -> List[Dict[str, object]]:
         result = self.collection.get(include=["documents", "metadatas"])
+        items: list[dict[str, object]] = []
+        ids = result.get("ids", [])
+        documents = result.get("documents", [])
+        metadatas = result.get("metadatas", [])
+        for index, document_id in enumerate(ids):
+            metadata = metadatas[index] if index < len(metadatas) else {}
+            content = documents[index] if index < len(documents) else ""
+            items.append(
+                {
+                    "id": document_id,
+                    "title": metadata.get("title", "Untitled"),
+                    "content": content,
+                    "source": metadata.get("source") or None,
+                    "score": None,
+                }
+            )
+        return items
+
+    def get_documents_by_ids(self, document_ids: List[str]) -> List[Dict[str, object]]:
+        cleaned_ids = [str(document_id) for document_id in document_ids if str(document_id).strip()]
+        if not cleaned_ids:
+            return []
+
+        result = self.collection.get(ids=cleaned_ids, include=["documents", "metadatas"])
         items: list[dict[str, object]] = []
         ids = result.get("ids", [])
         documents = result.get("documents", [])

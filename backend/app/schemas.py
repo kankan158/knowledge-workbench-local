@@ -2,6 +2,11 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 
+class ChatMessage(BaseModel):
+    role: str = Field(pattern="^(user|assistant)$")
+    content: str = Field(min_length=1)
+
+
 class DocumentIn(BaseModel):
     title: str = Field(min_length=1, max_length=200)
     content: str = Field(min_length=1)
@@ -29,6 +34,9 @@ class AskRequest(BaseModel):
     search_type: str = Field(default="hybrid")
     alpha: float = Field(default=0.5, ge=0.0, le=1.0)
     folder_filter: Optional[str] = Field(default=None, max_length=500)
+    history: list[ChatMessage] = Field(default_factory=list)
+    selected_document_ids: list[str] = Field(default_factory=list)
+    api_key: Optional[str] = Field(default=None, max_length=5000)
 
 
 class WorkspaceStateResponse(BaseModel):

@@ -1,16 +1,35 @@
-<script setup>
+﻿<script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import MarkdownIt from 'markdown-it'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/github.css'
 
-const API_BASE = 'http://127.0.0.1:8000'
+const API_BASE_CANDIDATES = ['/api', 'http://127.0.0.1:8000', 'http://localhost:8000']
+const apiBase = ref(API_BASE_CANDIDATES[0])
+const backendAvailable = ref(false)
+const markdown = new MarkdownIt({
+  breaks: true,
+  linkify: true,
+  html: false,
+  highlight(code, language) {
+    if (language && hljs.getLanguage(language)) {
+      try {
+        return `<pre class="md-code"><code class="hljs language-${language}">${hljs.highlight(code, { language }).value}</code></pre>`
+      } catch {
+        // fall back to plain escaped code
+      }
+    }
+    return `<pre class="md-code"><code class="hljs">${markdown.utils.escapeHtml(code)}</code></pre>`
+  },
+})
 
 const health = ref(null)
 const query = ref('')
 const question = ref('')
 const docs = ref([])
 const searchResults = ref([])
-const answer = ref('')
-const sources = ref([])
 const selectedFile = ref(null)
+const fileInput = ref(null)
 const selectedDoc = ref(null)
 const uploadMessage = ref('')
 const loading = ref(false)
@@ -34,13 +53,57 @@ const workspaceLoaded = ref(false)
 const leftPanelWidth = ref(300)
 const rightPanelWidth = ref(420)
 const activeSplitter = ref(null)
-
+const lastBackendError = ref('')
+const apiSettingsOpen = ref(false)
+const apiKey = ref('')
+const BOOTSTRAP_RETRIES = 8
+const BOOTSTRAP_RETRY_DELAY_MS = 500
 const STORAGE_KEYS = {
   folders: 'knowledge-workbench-folders-v3',
   tags: 'knowledge-workbench-tags-v3',
   meta: 'knowledge-workbench-meta-v3',
+  apiKey: 'knowledge-workbench-api-key-v1',
+  chatSessions: 'knowledge-workbench-chat-sessions-v1',
+  chatActiveId: 'knowledge-workbench-chat-active-id-v1',
 }
 
+const defaultChatSession = () => ({
+  id: generateId('chat'),
+  title: '新会话',
+  draftQuestion: '',
+  messages: [],
+  selectedDocIds: [],
+  createdAt: Date.now(),
+  updatedAt: Date.now(),
+})
+
+const chatSessions = ref(readStoredJSON(STORAGE_KEYS.chatSessions, [defaultChatSession()]))
+const activeChatSessionId = ref(readStoredJSON(STORAGE_KEYS.chatActiveId, ''))
+
+function getActiveChatSession() {
+  return chatSessions.value.find((session) => session.id === activeChatSessionId.value) ?? chatSessions.value[0] ?? null
+}
+
+const activeChatSession = computed(() => getActiveChatSession())
+const activeChatMessages = computed(() => activeChatSession.value?.messages ?? [])
+const activeChatScopeLabel = computed(() => {
+  const session = activeChatSession.value
+  if (!session) return '全部文件'
+  if (!session.selectedDocIds?.length) return '全部文件（默认）'
+  return `已选 ${session.selectedDocIds.length} 个文件`
+})
+
+async function ensureBackend() {
+  if (backendAvailable.value) return true
+  try {
+    await resolveApiBase()
+    backendAvailable.value = true
+    return true
+  } catch {
+    backendAvailable.value = false
+    return false
+  }
+}
 const STATE_FIELDS_BY_KEY = {
   [STORAGE_KEYS.folders]: 'folders',
   [STORAGE_KEYS.tags]: 'tags',
@@ -90,6 +153,40 @@ watch(
 )
 
 watch(
+  chatSessions,
+  (value) => {
+    saveLocalJSON(STORAGE_KEYS.chatSessions, value)
+  },
+  { deep: true },
+)
+
+watch(
+  activeChatSessionId,
+  (value) => {
+    saveLocalJSON(STORAGE_KEYS.chatActiveId, value)
+  },
+)
+
+watch(
+  apiKey,
+  (value) => {
+    saveLocalString(STORAGE_KEYS.apiKey, value)
+  },
+)
+
+watch(
+  [selectedDocIds, question],
+  () => {
+    const session = getActiveChatSession()
+    if (!session) return
+    session.selectedDocIds = [...new Set(selectedDocIds.value)]
+    session.draftQuestion = question.value
+    session.updatedAt = Date.now()
+  },
+  { deep: true },
+)
+
+watch(
   activeFolder,
   (value) => {
     if (value !== 'all' && folders.value.some((folder) => folder.id === value)) {
@@ -131,6 +228,156 @@ function saveStoredJSON(key, value) {
   persistWorkspaceState({ [field]: value })
 }
 
+function saveLocalJSON(key, value) {
+  try {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(key, JSON.stringify(value))
+    }
+  } catch {
+    // ignore local storage failures
+  }
+}
+
+function saveLocalString(key, value) {
+  try {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(key, String(value ?? ''))
+    }
+  } catch {
+    // ignore local storage failures
+  }
+}
+
+function loadApiKey() {
+  try {
+    if (typeof localStorage === 'undefined') return ''
+    const stored = String(localStorage.getItem(STORAGE_KEYS.apiKey) ?? '')
+    if (!stored) return ''
+    try {
+      return String(JSON.parse(stored) ?? '')
+    } catch {
+      return stored.replace(/^"(.*)"$/, '$1')
+    }
+  } catch {
+    return ''
+  }
+}
+
+function normalizeChatMessage(message) {
+  if (!message || typeof message !== 'object') return null
+  const role = String(message.role ?? '').trim()
+  const content = String(message.content ?? '').trim()
+  if (!content || !['user', 'assistant'].includes(role)) return null
+  return {
+    id: String(message.id ?? generateId('msg')),
+    role,
+    content,
+    sources: Array.isArray(message.sources) ? message.sources : [],
+    createdAt: Number(message.createdAt ?? Date.now()),
+  }
+}
+
+function normalizeChatSession(session) {
+  const normalizedMessages = Array.isArray(session?.messages)
+    ? session.messages.map((message) => normalizeChatMessage(message)).filter(Boolean)
+    : []
+  const selectedDocIds = Array.isArray(session?.selectedDocIds)
+    ? [...new Set(session.selectedDocIds.map((item) => String(item)).filter(Boolean))]
+    : []
+  return {
+    id: String(session?.id ?? generateId('chat')),
+    title: String(session?.title ?? '新会话') || '新会话',
+    draftQuestion: String(session?.draftQuestion ?? ''),
+    messages: normalizedMessages,
+    selectedDocIds,
+    createdAt: Number(session?.createdAt ?? Date.now()),
+    updatedAt: Number(session?.updatedAt ?? Date.now()),
+  }
+}
+
+function ensureChatSessions() {
+  const normalizedSessions = Array.isArray(chatSessions.value)
+    ? chatSessions.value.map((session) => normalizeChatSession(session))
+    : []
+  if (!normalizedSessions.length) {
+    normalizedSessions.push(defaultChatSession())
+  }
+  chatSessions.value = normalizedSessions
+  if (!chatSessions.value.some((session) => session.id === activeChatSessionId.value)) {
+    activeChatSessionId.value = chatSessions.value[0].id
+  }
+  const session = getActiveChatSession()
+  if (session) {
+    question.value = session.draftQuestion || ''
+    selectedDocIds.value = [...session.selectedDocIds]
+  }
+}
+
+function persistActiveChatSession() {
+  const session = getActiveChatSession()
+  if (!session) return
+  session.draftQuestion = question.value
+  session.selectedDocIds = [...new Set(selectedDocIds.value)]
+  session.updatedAt = Date.now()
+  saveLocalJSON(STORAGE_KEYS.chatSessions, chatSessions.value)
+  saveLocalJSON(STORAGE_KEYS.chatActiveId, activeChatSessionId.value)
+}
+
+function syncActiveChatSessionState() {
+  const session = getActiveChatSession()
+  if (!session) return
+  question.value = session.draftQuestion || ''
+  selectedDocIds.value = [...(session.selectedDocIds || [])]
+}
+
+function createChatSession() {
+  const session = defaultChatSession()
+  chatSessions.value.unshift(session)
+  activeChatSessionId.value = session.id
+  syncActiveChatSessionState()
+  persistActiveChatSession()
+}
+
+function setActiveChatSession(sessionId) {
+  if (!chatSessions.value.some((session) => session.id === sessionId)) return
+  persistActiveChatSession()
+  activeChatSessionId.value = sessionId
+  syncActiveChatSessionState()
+  persistActiveChatSession()
+}
+
+function deleteChatSession(sessionId) {
+  if (chatSessions.value.length <= 1) {
+    chatSessions.value = [defaultChatSession()]
+    activeChatSessionId.value = chatSessions.value[0].id
+    syncActiveChatSessionState()
+    persistActiveChatSession()
+    return
+  }
+  chatSessions.value = chatSessions.value.filter((session) => session.id !== sessionId)
+  if (activeChatSessionId.value === sessionId) {
+    activeChatSessionId.value = chatSessions.value[0].id
+    syncActiveChatSessionState()
+  }
+  persistActiveChatSession()
+}
+
+function setActiveChatTitleFromQuestion(questionText) {
+  const session = getActiveChatSession()
+  if (!session || session.title !== '新会话') return
+  const nextTitle = questionText.trim().slice(0, 12) || '新会话'
+  session.title = nextTitle
+}
+
+function setApiKey(nextValue) {
+  apiKey.value = String(nextValue ?? '')
+  saveLocalString(STORAGE_KEYS.apiKey, apiKey.value)
+}
+
+function clearApiKey() {
+  setApiKey('')
+}
+
 async function loadWorkspaceState() {
   const localState = {
     folders: readStoredJSON(STORAGE_KEYS.folders, defaultFolders),
@@ -139,7 +386,7 @@ async function loadWorkspaceState() {
   }
 
   try {
-    const response = await fetch(`${API_BASE}/workspace/state`)
+    const response = await fetch(`${apiBase.value}/workspace/state`)
     if (response.ok) {
       const state = await response.json()
       const hasBackendState =
@@ -163,12 +410,16 @@ async function loadWorkspaceState() {
   tagCatalog.value = localState.tags
   docMeta.value = localState.docMeta
   workspaceLoaded.value = true
-  await persistWorkspaceState({ folders: folders.value, tags: tagCatalog.value, docMeta: docMeta.value })
+  if (backendAvailable.value) {
+    await persistWorkspaceState({ folders: folders.value, tags: tagCatalog.value, docMeta: docMeta.value })
+  }
 }
 
 async function persistWorkspaceState(partialState) {
+  if (!backendAvailable.value) return
+
   try {
-    await fetch(`${API_BASE}/workspace/state`, {
+    await fetch(`${apiBase.value}/workspace/state`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -176,7 +427,7 @@ async function persistWorkspaceState(partialState) {
       body: JSON.stringify(partialState),
     })
   } catch {
-    // ignore sync failures
+    backendAvailable.value = false
   }
 }
 
@@ -193,15 +444,93 @@ function formatRequestError(err, fallbackMessage) {
   const message = String(err.message ?? '').trim()
   if (!message) return fallbackMessage
   if (message.includes('Failed to fetch') || message.includes('NetworkError')) {
-    return '无法连接后端（http://127.0.0.1:8000），请先启动 FastAPI 后重试。'
+    return `无法连接后端（${apiBase.value}），请先启动 FastAPI 后重试。浏览器错误：${message}`
   }
   return message
+}
+
+function safePrompt(message, defaultValue = '') {
+  try {
+    if (typeof window !== 'undefined' && typeof window.prompt === 'function') {
+      return window.prompt(message, defaultValue)
+    }
+  } catch {
+    // fall through to null
+  }
+  return defaultValue || null
+}
+
+function safeConfirm(message) {
+  try {
+    if (typeof window !== 'undefined' && typeof window.confirm === 'function') {
+      return window.confirm(message)
+    }
+  } catch {
+    // fall through to false
+  }
+  return false
+}
+
+async function resolveApiBase() {
+  const candidates = [apiBase.value, ...API_BASE_CANDIDATES.filter((item) => item !== apiBase.value)]
+  for (const candidate of candidates) {
+    try {
+      const response = await fetch(`${candidate}/health`)
+      if (!response.ok) continue
+      apiBase.value = candidate
+      backendAvailable.value = true
+      return
+    } catch {
+      // try next candidate
+    }
+  }
+
+  throw new Error(`后端不可用，已尝试：${candidates.join(' , ')}`)
+}
+
+async function sleep(ms) {
+  await new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+async function bootstrapBackend() {
+  let lastError = null
+  for (let attempt = 1; attempt <= BOOTSTRAP_RETRIES; attempt++) {
+    try {
+      await resolveApiBase()
+      await Promise.all([fetchHealth(), loadDocuments()])
+      error.value = ''
+      lastBackendError.value = ''
+      return
+    } catch (err) {
+      lastError = err
+      backendAvailable.value = false
+      if (attempt < BOOTSTRAP_RETRIES) {
+        await sleep(BOOTSTRAP_RETRY_DELAY_MS)
+      }
+    }
+  }
+  throw lastError ?? new Error('后端尚未就绪')
+}
+
+async function retryBackendConnection() {
+  error.value = ''
+  try {
+    await bootstrapBackend()
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err ?? '')
+    lastBackendError.value = detail
+    error.value = `后端尚未就绪，请先启动 FastAPI。${detail ? `（${detail}）` : ''}`
+  }
 }
 
 function highlightText(text, keyword) {
   if (!keyword || !text) return text
   const regex = new RegExp(`(${keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
   return text.replace(regex, '<mark style="background:#FFF59D;color:#000;">$1</mark>')
+}
+
+function renderMarkdown(text) {
+  return markdown.render(String(text ?? ''))
 }
 
 function inferFileType(doc) {
@@ -447,7 +776,8 @@ async function copyDocumentName(doc) {
 
 async function copyDocument(doc) {
   const sourceDoc = docs.value.find((item) => item.id === doc.id) ?? doc
-  const response = await fetch(`${API_BASE}/documents`, {
+  if (!(await ensureBackend())) throw new Error('后端不可用')
+  const response = await fetch(`${apiBase.value}/documents`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -472,7 +802,9 @@ async function copyDocument(doc) {
     indexed: true,
     fileType: sourceMeta.fileType ?? inferFileType(sourceDoc),
   })
-  await Promise.all([fetchHealth(), loadDocuments()])
+  if (backendAvailable.value) {
+    await Promise.all([fetchHealth(), loadDocuments()])
+  }
   uploadMessage.value = `已复制：${created.title}`
 }
 
@@ -517,6 +849,7 @@ function moveDocuments(docIds, folderId) {
 
 function clearSelection() {
   selectedDocIds.value = []
+  persistActiveChatSession()
 }
 
 function toggleDocSelection(docId) {
@@ -526,6 +859,7 @@ function toggleDocSelection(docId) {
   } else {
     selectedDocIds.value.push(docId)
   }
+  persistActiveChatSession()
 }
 
 function openTagEditor(docIds) {
@@ -577,7 +911,7 @@ function saveTagEditor() {
 }
 
 function createTag() {
-  const next = prompt('请输入新标签名称')
+  const next = safePrompt('请输入新标签名称')
   const name = next?.trim()
   if (!name) return
   if (tagCatalog.value.includes(name)) return
@@ -585,9 +919,9 @@ function createTag() {
 }
 
 function renameTag() {
-  const oldName = prompt('请输入要重命名的标签')?.trim()
+  const oldName = safePrompt('请输入要重命名的标签')?.trim()
   if (!oldName || !tagCatalog.value.includes(oldName)) return
-  const next = prompt('请输入新的标签名称', oldName)?.trim()
+  const next = safePrompt('请输入新的标签名称', oldName)?.trim()
   if (!next || next === oldName) return
   tagCatalog.value = tagCatalog.value.map((tag) => (tag === oldName ? next : tag))
   Object.keys(docMeta.value).forEach((docId) => {
@@ -607,7 +941,7 @@ function deleteTag() {
     error.value = '请先点击选择要删除的标签。'
     return
   }
-  if (!confirm(`确认删除标签「${targets.join('、')}」？这些标签会从所有文件中移除。`)) return
+  if (!safeConfirm(`确认删除标签「${targets.join('、')}」？这些标签会从所有文件中移除。`)) return
   tagCatalog.value = tagCatalog.value.filter((tag) => !targets.includes(tag))
   Object.keys(docMeta.value).forEach((docId) => {
     const tags = docMeta.value[docId]?.tags ?? []
@@ -617,8 +951,8 @@ function deleteTag() {
 }
 
 function mergeTags() {
-  const source = prompt('请输入要合并的源标签')?.trim()
-  const target = prompt('请输入目标标签')?.trim()
+  const source = safePrompt('请输入要合并的源标签')?.trim()
+  const target = safePrompt('请输入目标标签')?.trim()
   if (!source || !target || source === target) return
   if (!tagCatalog.value.includes(source) || !tagCatalog.value.includes(target)) return
   tagCatalog.value = tagCatalog.value.filter((tag) => tag !== source)
@@ -634,7 +968,7 @@ function mergeTags() {
 }
 
 function createFolder(parentId = null) {
-  const name = prompt('请输入文件夹名称')?.trim()
+  const name = safePrompt('请输入文件夹名称')?.trim()
   if (!name) return
   const id = generateId('folder')
   folders.value.push({ id, name, parentId: parentId === 'all' ? null : parentId })
@@ -645,7 +979,7 @@ function createFolder(parentId = null) {
 function renameFolder(folderId) {
   const folder = folders.value.find((item) => item.id === folderId)
   if (!folder) return
-  const next = prompt('请输入新的文件夹名称', folder.name)?.trim()
+  const next = safePrompt('请输入新的文件夹名称', folder.name)?.trim()
   if (!next) return
   folder.name = next
 }
@@ -653,7 +987,7 @@ function renameFolder(folderId) {
 function deleteFolder(folderId) {
   const folder = folders.value.find((item) => item.id === folderId)
   if (!folder) return
-  if (!confirm(`确认删除文件夹「${folder.name}」？其中的文件会移回上级目录。`)) return
+  if (!safeConfirm(`确认删除文件夹「${folder.name}」？其中的文件会移回上级目录。`)) return
   const parentId = folder.parentId ?? null
   folders.value = folders.value.filter((item) => item.id !== folderId)
   Object.keys(docMeta.value).forEach((docId) => {
@@ -684,7 +1018,11 @@ function deleteDocument(docId) {
   const confirmLabel = groupIds.length > 1 ? `确认删除这个文件及其 ${groupIds.length} 个分块？` : '确认删除这个文件？'
   if (!confirm(confirmLabel)) return Promise.resolve()
 
-  return Promise.all(groupIds.map((id) => fetch(`${API_BASE}/documents/${id}`, { method: 'DELETE' }))).finally(async () => {
+  return (async () => {
+    if (!(await ensureBackend())) throw new Error('后端不可用')
+    await Promise.all(groupIds.map((id) => fetch(`${apiBase.value}/documents/${id}`, { method: 'DELETE' })))
+  })()
+    .finally(async () => {
     groupIds.forEach((id) => delete docMeta.value[id])
     selectedDocIds.value = selectedDocIds.value.filter((id) => !groupIds.includes(id))
     if (selectedDoc.value && groupIds.includes(selectedDoc.value.id)) {
@@ -700,7 +1038,7 @@ async function deleteDocumentFromMenu(doc) {
 }
 
 function renameDocument(doc) {
-  const next = prompt('请输入新的文件名', doc.title)?.trim()
+  const next = safePrompt('请输入新的文件名', doc.title)?.trim()
   if (!next) return
   setDocumentMeta(doc.id, { titleOverride: next })
   if (selectedDoc.value?.id === doc.id) {
@@ -820,6 +1158,10 @@ function docsInFolder(folderId) {
   )
 }
 
+function folderHasVisibleContent(folderId) {
+  return docsInFolder(folderId).length > 0 || folderChildren(folderId).length > 0
+}
+
 const enrichedDocs = computed(() => normalizeDocuments(docs.value))
 
 const visibleDocs = computed(() => {
@@ -860,15 +1202,37 @@ const visibleDocs = computed(() => {
 
 const activeFolderLabel = computed(() => folderLabelById(activeFolder.value))
 const indexedDocCount = computed(() => new Set(docs.value.map((doc) => documentGroupKey(doc))).size)
+// 当前列表实际可见的文档数量，直接与左栏同步
+const loadedDocCount = computed(() => {
+  try {
+    return visibleDocs.value.length
+  } catch {
+    return 0
+  }
+})
 
 async function fetchHealth() {
-  const response = await fetch(`${API_BASE}/health`)
+  if (!(await ensureBackend())) throw new Error('后端不可用')
+  const response = await fetch(`${apiBase.value}/health`)
   health.value = await response.json()
 }
 
 async function loadDocuments() {
-  const response = await fetch(`${API_BASE}/documents`)
+  if (!(await ensureBackend())) {
+    docs.value = []
+    return
+  }
+  const response = await fetch(`${apiBase.value}/documents`)
   docs.value = normalizeDocuments(await response.json())
+  const validIds = new Set(docs.value.map((doc) => doc.id))
+  chatSessions.value = chatSessions.value.map((session) => {
+    const normalized = normalizeChatSession(session)
+    return {
+      ...normalized,
+      selectedDocIds: normalized.selectedDocIds.filter((docId) => validIds.has(docId)),
+    }
+  })
+  syncActiveChatSessionState()
   syncAutoTagMigration(docs.value)
   if (!selectedDoc.value && docs.value.length) {
     selectedDoc.value = docs.value[0]
@@ -882,7 +1246,8 @@ function handleFileChange(event) {
 }
 
 async function uploadDocument() {
-  if (!selectedFile.value) {
+  const file = selectedFile.value
+  if (!file) {
     error.value = '请先选择一个文本文件。'
     return
   }
@@ -902,13 +1267,14 @@ async function uploadDocument() {
     }
 
     const formData = new FormData()
-    formData.append('file', selectedFile.value)
-    formData.append('title', selectedFile.value.name.replace(/\.[^.]+$/, '') || selectedFile.value.name)
-    formData.append('source', `folder://${folderPathById(uploadFolderId.value)}/${selectedFile.value.name}`)
+    formData.append('file', file)
+    formData.append('title', file.name.replace(/\.[^.]+$/, '') || file.name)
+    formData.append('source', `folder://${folderPathById(uploadFolderId.value)}/${file.name}`)
     formData.append('chunk_size', uploadChunkSize.value)
     formData.append('overlap', uploadOverlap.value)
 
-    const response = await fetch(`${API_BASE}/documents/upload`, {
+    if (!(await ensureBackend())) throw new Error('后端不可用')
+    const response = await fetch(`${apiBase.value}/documents/upload`, {
       method: 'POST',
       body: formData,
     })
@@ -928,7 +1294,9 @@ async function uploadDocument() {
         fileType: inferFileType(doc),
       })
     })
-    await Promise.all([fetchHealth(), loadDocuments()])
+    if (backendAvailable.value) {
+      await Promise.all([fetchHealth(), loadDocuments()])
+    }
     clearUploadTags()
   } catch (err) {
     error.value = formatRequestError(err, '上传失败')
@@ -936,6 +1304,9 @@ async function uploadDocument() {
     loading.value = false
     uploadProgress.value = 100
     selectedFile.value = null
+    if (fileInput.value) {
+      fileInput.value.value = ''
+    }
   }
 }
 
@@ -943,7 +1314,7 @@ async function runSearch() {
   loading.value = true
   error.value = ''
   try {
-    let url = `${API_BASE}/search?q=${encodeURIComponent(query.value)}&top_k=5`
+    let url = `${apiBase.value}/search?q=${encodeURIComponent(query.value)}&top_k=5`
     if (inFolderOnly.value && activeFolder.value !== 'all') {
       url += `&folder=${encodeURIComponent(folderLabelById(activeFolder.value))}`
     }
@@ -951,6 +1322,7 @@ async function runSearch() {
     if (searchMode.value === 'hybrid') {
       url += `&alpha=${searchAlpha.value}`
     }
+    if (!(await ensureBackend())) throw new Error('后端不可用')
     const response = await fetch(url)
     if (!response.ok) throw new Error('检索请求失败')
     const results = await response.json()
@@ -970,7 +1342,8 @@ async function openDocument(doc) {
   selectedDoc.value = doc
   displayMode.value = 'browse'
   try {
-    const response = await fetch(`${API_BASE}/documents`)
+    if (!(await ensureBackend())) return
+    const response = await fetch(`${apiBase.value}/documents`)
     if (response.ok) {
       const all = normalizeDocuments(await response.json())
       const found = all.find((d) => d.id === doc.id)
@@ -982,27 +1355,56 @@ async function openDocument(doc) {
 }
 
 async function askQuestion() {
+  const trimmedQuestion = question.value.trim()
+  if (!trimmedQuestion) {
+    error.value = '请先输入问题。'
+    return
+  }
+
   loading.value = true
   error.value = ''
   try {
+    const session = getActiveChatSession()
+    if (!session) throw new Error('会话不可用')
+    const history = session.messages.map((message) => ({ role: message.role, content: message.content }))
     const effectiveFolderFilter = inFolderOnly.value && activeFolder.value !== 'all' ? folderLabelById(activeFolder.value) : null
-    const response = await fetch(`${API_BASE}/ask`, {
+    if (!(await ensureBackend())) throw new Error('后端不可用')
+    session.messages.push({
+      id: generateId('msg'),
+      role: 'user',
+      content: trimmedQuestion,
+      sources: [],
+      createdAt: Date.now(),
+    })
+    setActiveChatTitleFromQuestion(trimmedQuestion)
+    persistActiveChatSession()
+    const response = await fetch(`${apiBase.value}/ask`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        question: question.value,
+        question: trimmedQuestion,
         top_k: 3,
         search_type: searchMode.value,
         alpha: searchAlpha.value,
         folder_filter: effectiveFolderFilter,
+        history,
+        selected_document_ids: selectedDocIds.value,
+        api_key: apiKey.value,
       }),
     })
     if (!response.ok) throw new Error('问答请求失败')
     const payload = await response.json()
-    answer.value = payload.answer
-    sources.value = payload.sources
+    session.messages.push({
+      id: generateId('msg'),
+      role: 'assistant',
+      content: payload.answer,
+      sources: payload.sources ?? [],
+      createdAt: Date.now(),
+    })
+    persistActiveChatSession()
+    question.value = ''
   } catch (err) {
     error.value = formatRequestError(err, '问答失败')
   } finally {
@@ -1090,10 +1492,14 @@ onBeforeUnmount(() => {
 
 onMounted(async () => {
   try {
+    apiKey.value = loadApiKey()
+    ensureChatSessions()
     await loadWorkspaceState()
-    await Promise.all([fetchHealth(), loadDocuments()])
-  } catch {
-    error.value = '后端尚未就绪，请先启动 FastAPI。'
+    await bootstrapBackend()
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err ?? '')
+    lastBackendError.value = detail
+    error.value = `后端尚未就绪，请先启动 FastAPI。${detail ? `（${detail}）` : ''}`
   }
 })
 </script>
@@ -1105,19 +1511,39 @@ onMounted(async () => {
         <div class="hero-title-row">
           <span class="hero-icon" aria-hidden="true">📚</span>
           <span class="hero-badge">本地优先</span>
+          <span class="hero-desc-inline">一个精简的 Vue + FastAPI 起步项目，用于文档检索、引用问答和资料管理。</span>
         </div>
-        <h1 class="hero-title">知识工作台</h1>
-        <p class="hero-desc">一个精简的 Vue + FastAPI 起步项目，用于文档检索、引用问答和资料管理。</p>
-        <p class="hero-status">📄 已索引 {{ indexedDocCount }} 篇文档 · 本地模式</p>
+        <div class="hero-heading-row">
+          <h1 class="hero-title">知识工作台</h1>
+        </div>
       </div>
 
       <div class="hero-actions" aria-label="占位操作区">
         <button class="hero-action" type="button" aria-label="搜索占位">🔍</button>
-        <button class="hero-action hero-action-primary" type="button">新建</button>
-        <button class="hero-action" type="button" aria-label="设置占位">⚙</button>
+        <button class="hero-action hero-action-primary" type="button" @click="createChatSession">新会话</button>
+        <button class="hero-action" type="button" aria-label="API 设置" @click="apiSettingsOpen = true">🔑 API</button>
       </div>
 
     </section>
+
+      <div class="chat-session-bar">
+        <div class="chat-session-strip" role="tablist" aria-label="会话列表">
+          <button
+            v-for="session in chatSessions"
+            :key="session.id"
+            class="chat-session-pill"
+            :class="{ active: session.id === activeChatSessionId }"
+            type="button"
+            @click="setActiveChatSession(session.id)"
+          >
+            {{ session.title }}
+          </button>
+        </div>
+        <div class="chat-session-actions">
+          <button class="mini" type="button" @click="createChatSession">+ 会话</button>
+          <button class="mini" type="button" :disabled="chatSessions.length <= 1" @click="deleteChatSession(activeChatSessionId)">删会话</button>
+        </div>
+      </div>
 
     <section
       class="workspace three-col"
@@ -1145,10 +1571,10 @@ onMounted(async () => {
                 @dragend="onDragEnd"
               >
                 <button
-                  v-if="folder.hasChildren"
+                  v-if="folderHasVisibleContent(folder.id)"
                   class="tree-expander"
                   @click.stop="toggleFolderExpanded(folder.id)"
-                  :title="isFolderExpanded(folder.id) ? '折叠子目录' : '展开子目录'"
+                  :title="isFolderExpanded(folder.id) ? '收起该目录下的文件和子目录' : '展开该目录下的文件和子目录'"
                 >
                   {{ isFolderExpanded(folder.id) ? '▾' : '▸' }}
                 </button>
@@ -1218,8 +1644,20 @@ onMounted(async () => {
         <article class="panel search-panel">
           <label>
             上传文本文件
-            <input type="file" accept=".txt,.md,.markdown,.csv,.json,.log,.pdf,.docx,.doc,.xlsx,.xls" @change="handleFileChange" />
+            <input ref="fileInput" type="file" accept=".txt,.md,.markdown,.csv,.json,.log,.pdf,.docx,.doc,.xlsx,.xls" @change="handleFileChange" />
           </label>
+
+          <div v-if="uploadProgress > 0 && uploadProgress < 100" class="upload-progress-section">
+            <div class="progress-bar">
+              <div class="progress-fill" :style="{ width: uploadProgress + '%' }"></div>
+            </div>
+            <p class="progress-text">处理中... {{ Math.round(uploadProgress) }}%</p>
+            <div class="upload-steps">
+              <div v-for="(step, idx) in uploadSteps" :key="idx" class="step" :class="{ done: idx <= uploadCurrentStep }">
+                {{ step }}
+              </div>
+            </div>
+          </div>
 
           <div class="upload-target-panel">
             <label>
@@ -1309,17 +1747,7 @@ onMounted(async () => {
             <!-- removed per UI decision: the folder-restriction checkbox was redundant -->
           </div>
 
-          <div v-if="uploadProgress > 0 && uploadProgress < 100" class="upload-progress-section">
-            <div class="progress-bar">
-              <div class="progress-fill" :style="{ width: uploadProgress + '%' }"></div>
-            </div>
-            <p class="progress-text">处理中... {{ Math.round(uploadProgress) }}%</p>
-            <div class="upload-steps">
-              <div v-for="(step, idx) in uploadSteps" :key="idx" class="step" :class="{ done: idx <= uploadCurrentStep }">
-                {{ step }}
-              </div>
-            </div>
-          </div>
+          
 
           
 
@@ -1404,26 +1832,31 @@ onMounted(async () => {
           <span>检索 + 合成</span>
         </div>
 
+        
+
         <label>
           问题
-          <textarea v-model="question" rows="5" placeholder="这个知识工作台是怎么做检索的？"></textarea>
+          <textarea v-model="question" rows="3" placeholder="这个知识工作台是怎么做检索的？"></textarea>
         </label>
 
         <div class="actions">
           <button class="secondary" :disabled="loading" @click="askQuestion">生成答案</button>
         </div>
 
-        <div class="answer-card" v-if="answer">
-          <h3>答案</h3>
-          <p>{{ answer }}</p>
-        </div>
+        <div class="chat-thread" v-if="activeChatMessages.length">
+          <article v-for="message in activeChatMessages" :key="message.id" class="chat-message" :class="message.role">
+            <div class="chat-message-header">
+              <strong>{{ message.role === 'user' ? '你' : '答案' }}</strong>
+              <span>{{ new Date(message.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }}</span>
+            </div>
+            <div v-if="message.role === 'assistant'" class="chat-message-body markdown-body" v-html="renderMarkdown(message.content)"></div>
+            <div v-else class="chat-message-body">{{ message.content }}</div>
 
-        <div class="source-grid" v-if="sources.length">
-          <article v-for="item in sources" :key="item.id" class="source-chip">
-            <strong>{{ displayDocumentTitle(item.title) }}</strong>
-            <span>{{ item.source || '本地文档' }}</span>
+            <!-- 来源卡片已隐藏，避免在答案区显示具体文件名 -->
           </article>
         </div>
+
+        <p v-else class="empty-chat-hint">当前会话还没有对话，输入问题后这里会显示连续问答记录。</p>
       </article>
     </section>
 
@@ -1468,7 +1901,30 @@ onMounted(async () => {
       </div>
     </div>
 
-    <p v-if="error" class="error-banner">{{ error }}</p>
+    <div v-if="apiSettingsOpen" class="modal-backdrop" @click.self="apiSettingsOpen = false">
+      <div class="modal-panel api-panel">
+        <div class="panel-header">
+          <h3>API 设置</h3>
+          <button class="mini" @click="apiSettingsOpen = false">关闭</button>
+        </div>
+        <p class="modal-desc">输入你的 DeepSeek API Key。会保存在本地浏览器中，后续问答自动携带。</p>
+        <label class="modal-inline modal-stack">
+          <span>API Key</span>
+          <input v-model="apiKey" type="text" placeholder="sk-..." />
+        </label>
+        <div class="actions modal-actions">
+          <button class="secondary" @click="setApiKey(apiKey)">保存</button>
+          <button class="mini" @click="clearApiKey">清除</button>
+          <button class="mini" @click="apiSettingsOpen = false">取消</button>
+        </div>
+      </div>
+    </div>
+
+    <p v-if="error" class="error-banner">
+      <span>{{ error }}</span>
+      <span class="error-meta">当前后端：{{ apiBase }}</span>
+      <button class="mini error-action" type="button" @click="retryBackendConnection">重连后端</button>
+    </p>
   </main>
 </template>
 
@@ -1494,8 +1950,8 @@ onMounted(async () => {
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 32px;
-  padding: 24px;
+  margin-bottom: 4px;
+  padding: 12px 18px;
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid var(--border);
   border-radius: 22px;
@@ -1551,6 +2007,32 @@ onMounted(async () => {
   font-size: 14px;
   line-height: 1.6;
   color: #64748b;
+}
+
+.hero-desc.compact {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.hero-heading-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.hero-inline-status {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+.hero-desc-inline {
+  margin-left: 8px;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.2;
 }
 
 .hero-status {
@@ -2050,6 +2532,133 @@ select:focus {
   gap: 10px;
 }
 
+.chat-session-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -8px;
+  padding: 6px 12px 12px; /* pull up slightly and reduce bottom */
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel-strong);
+}
+
+.chat-session-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  flex: 1;
+  padding-bottom: 10px; /* slightly more breathing room below pills */
+}
+
+.chat-session-pill {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text-main);
+  padding: 7px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.chat-session-pill.active {
+  background: var(--accent-soft);
+  border-color: rgba(47, 125, 120, 0.35);
+  color: var(--accent);
+}
+
+.chat-session-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qa-scope-hint,
+.empty-chat-hint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.chat-thread {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 420px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.qa-panel textarea {
+  height: 80px; /* 缩窄问答框高度到约一半 */
+  max-height: 120px;
+}
+
+.chat-message {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  background: #fff;
+}
+
+.chat-message.user {
+  background: #f6fbfb;
+}
+
+.chat-message.assistant {
+  background: #fffdfa;
+}
+
+.chat-message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.chat-message-body {
+  white-space: pre-wrap;
+  line-height: 1.65;
+  color: var(--text-main);
+}
+
+.markdown-body :deep(p),
+.markdown-body :deep(ul),
+.markdown-body :deep(ol),
+.markdown-body :deep(blockquote),
+.markdown-body :deep(pre) {
+  margin: 0 0 0.75em;
+}
+
+.markdown-body :deep(pre.md-code) {
+  padding: 12px;
+  border-radius: 12px;
+  overflow: auto;
+  background: #f5f7fb;
+}
+
+.markdown-body :deep(code) {
+  font-family: Consolas, 'SFMono-Regular', 'Liberation Mono', Menlo, monospace;
+}
+
+.api-panel {
+  width: min(520px, 92vw);
+}
+
+.modal-stack {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.modal-stack span {
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
 .upload-steps {
   display: flex;
   flex-wrap: wrap;
@@ -2134,6 +2743,21 @@ select:focus {
   border-radius: 10px;
   color: #8f2f2f;
   padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(92vw, 860px);
+  flex-wrap: wrap;
+}
+
+.error-meta {
+  font-size: 12px;
+  color: #7a5c5c;
+}
+
+.error-action {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .context-menu-backdrop {
@@ -2215,3 +2839,5 @@ select:focus {
   }
 }
 </style>
+
+

@@ -1,0 +1,17 @@
+方式一：手动（推荐用于开发/调试）：
+打开终端 A:
+cd backend
+.\.venv\Scripts\Activate.ps1
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+
+打开终端 B：
+cd frontend
+npm install   # 若未安装依赖
+npm run dev
+
+访问 http://localhost:4173/
+
+
+方式二：双击一键启动（推荐演示/快速启动）：
+在项目根双击 start.bat （或右键用 PowerShell 运行 start.ps1）
+脚本会打开两个命令窗口：一个运行后端（并尝试激活 backend/.venv），另一个运行前端，然后自动在浏览器打开 http://localhost:4173/。

@@ -4,7 +4,7 @@
     {
       "label": "backend: install",
       "type": "shell",
-      "command": "python",
+      "command": ".\\.venv\\Scripts\\python.exe",
       "args": ["-m", "pip", "install", "-r", "requirements.txt"],
       "options": {
         "cwd": "${workspaceFolder}\\backend"
@@ -14,7 +14,7 @@
     {
       "label": "backend: run",
       "type": "shell",
-      "command": "python",
+      "command": ".\\.venv\\Scripts\\python.exe",
       "args": ["-m", "uvicorn", "app.main:app", "--reload", "--host", "127.0.0.1", "--port", "8000"],
       "options": {
         "cwd": "${workspaceFolder}\\backend"
@@ -25,7 +25,7 @@
     {
       "label": "frontend: install",
       "type": "shell",
-      "command": "npm",
+      "command": "npm.cmd",
       "args": ["install"],
       "options": {
         "cwd": "${workspaceFolder}\\frontend"
@@ -35,8 +35,8 @@
     {
       "label": "frontend: run",
       "type": "shell",
-      "command": "npm",
-      "args": ["run", "dev", "--", "--host", "127.0.0.1"],
+      "command": "npm.cmd",
+      "args": ["run", "dev", "--", "--host", "localhost", "--port", "4173", "--strictPort"],
       "options": {
         "cwd": "${workspaceFolder}\\frontend"
       },

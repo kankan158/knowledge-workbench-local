@@ -55,7 +55,7 @@ npm run dev
 
 | 服务 | 地址 |
 | --- | --- |
-| 前端界面 | http://127.0.0.1:5173 |
+| 前端界面 | http://localhost:4173 |
 | 后端 API 文档 | http://127.0.0.1:8000/docs |
 | 健康检查 | http://127.0.0.1:8000/health |
 
@@ -120,6 +120,8 @@ npm run dev
 | `GET` | `/workspace/state` | 读取工作区状态（目录、标签、元数据） |
 | `PATCH` | `/workspace/state` | 更新工作区状态 |
 
+`/ask` 现在还支持可选的 `api_key` 字段，前端右上角的 `API` 按钮会把你本地保存的 DeepSeek 个人 key 一并带给后端。
+
 ### 典型请求示例
 
 ```powershell
@@ -133,6 +135,34 @@ curl -X POST "http://127.0.0.1:8000/ask" `
 ```
 
 ## 配置说明
+
+## 一键启动（Windows）
+
+项目根目录下提供了两个方便的启动方式：
+
+- 手动分别启动（适合调试）
+
+	1. 打开一个终端，进入 `backend` 并启动后端：
+
+	```powershell
+	cd backend
+	.\.venv\Scripts\Activate.ps1
+	uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+	```
+
+	2. 再打开另一个终端，进入 `frontend` 并启动前端：
+
+	```powershell
+	cd frontend
+	npm run dev
+	```
+
+- 双击启动（适合快速演示）
+
+	在项目根目录双击 `start.bat`（或以管理员身份运行 `start.ps1`），脚本会在新窗口中依次启动后端与前端，并自动打开浏览器到 `http://localhost:4173/`。
+
+	说明：`start.bat` 会尝试激活 `backend/.venv`（如果存在），并以 `127.0.0.1:8000` 启动后端；前端绑定到 `0.0.0.0:4173`，以便在本地网络环境与调试工具中更容易访问。
+
 
 当前可配置项主要来自 [`.env.example`](.env.example)。
 
